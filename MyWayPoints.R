@@ -1,9 +1,9 @@
 library(DBI); library(dbplyr); library(dplyr); library(DT); library(stringr); library(lubridate); library(plotly); library(purrr);
 library(odbc); library(rlang); library(shinyBS); library(shiny); library(shinydashboard); library(data.table); library(mapsapi);
-library(maps); library(leaflet); library(xml2); library(scales); library(sf); library(googleway); library(owmr); library(glue);
+library(maps); library(leaflet); library(scales); library(sf); library(googleway); library(owmr); library(glue);
 
-key1 = "AIzaSyCR5BPcANHoawEeKzbaKFZdoJQqSR-GABY"
-weat_KEY <- "4d071450e2ece1b6746534ad5447cf3c"
+key1 = "your_key_here"
+weat_KEY <- "your_key_here"
 set_key(key = key1)
 owmr_settings(weat_KEY)
 search_strings <- data.frame(Start = character(), End = character(), Directions = character(), Mode = character(),stringsAsFactors = FALSE)
@@ -127,14 +127,14 @@ server <- function(input, output) {
     start_end$info_win[2] <- glue("<b>End:</b> {input$end_point}") 
     
     df_cord$info_win[1] <- glue("<b>Coordinate Pair:</b> {df_cord$lat[1]}, {df_cord$lon[1]}</br>",
-                                "<b>Lowest Temp:</b> {blah1$main.temp_min[1]} 캟</br>",
-                                "<b>Highest Temp:</b> {blah1$main.temp_max[1]}캟</br>",
-                                "<b>Current Temp:</b> {blah1$main.temp[1]} 캟</br>",
+                                "<b>Lowest Temp:</b> {blah1$main.temp_min[1]} 째F</br>",
+                                "<b>Highest Temp:</b> {blah1$main.temp_max[1]}째F</br>",
+                                "<b>Current Temp:</b> {blah1$main.temp[1]} 째F</br>",
                                 "<b>Current Weather:</b> {blah1$weather.main[1]}")
     df_cord$info_win[2] <- glue("<b>Coordinate Pair:</b> {df_cord$lat[2]}, {df_cord$lon[2]}</br>",
-                                "<b>Lowest Temp:</b> {blah2$main.temp_min[1]} 캟</br>",
-                                "<b>Highest Temp:</b> {blah2$main.temp_max[1]} 캟</br>",
-                                "<b>Current Temp:</b> {blah2$main.temp[1]} 캟</br>",
+                                "<b>Lowest Temp:</b> {blah2$main.temp_min[1]} 째F</br>",
+                                "<b>Highest Temp:</b> {blah2$main.temp_max[1]} 째F</br>",
+                                "<b>Current Temp:</b> {blah2$main.temp[1]} 째F</br>",
                                 "<b>Current Weather:</b> {blah2$weather.main[1]}")
     
     google_map_update(map_id = "mymap") %>% 
